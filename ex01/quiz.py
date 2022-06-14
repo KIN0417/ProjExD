@@ -1,6 +1,5 @@
 import random
 
-from sympy import Q 
 def shutudai():
     sazae=["サザエの旦那の名前は？","マスオ","ますお"]
     katuo=["カツオの妹の名前は？","ワカメ","わかめ"]
