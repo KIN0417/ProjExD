@@ -12,11 +12,12 @@ def quiz():
         for i in range(n1):
             a=random.randint(0,len(moji)-1)
             q.append(moji.pop(a))
+        print("対象文字：")
         print(" ".join(q)) #対象文字表示
         for i in range(n2):
             b=random.randint(0,len(q)-1)
             k.append(q.pop(b))
-        print("対象文字：")
+        print("表示文字：") #表示文字表示
         print(" ".join(q))
         #print(k) #答え確認用
         x=1
