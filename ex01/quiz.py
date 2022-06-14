@@ -23,17 +23,17 @@ def kaitou(q):
     tarao=["タラオはカツオからみてどんな関係？","甥","おい","甥っ子","おいっこ"]
     a=input("答え")
     if q==0:
-        if a==sazae[1] or sazae[2]:
+        if a==sazae[1] or a==sazae[2]:
             print("正解")
         else:
             print("不正解")
     if q==1:
-        if a==katuo[1] or katuo[2]:
+        if a==katuo[1] or a==katuo[2]:
             print("正解")
         else:
             print("不正解")
     if q==2:
-        if a==tarao[1] or tarao[2] or tarao[3] or tarao[4]:
+        if a==tarao[1] or a==tarao[2] or a==tarao[3] or a==tarao[4]:
             print("正解")
         else:
             print("不正解")
