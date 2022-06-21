@@ -18,7 +18,7 @@ def button_click2(event):
     txt=btn["text"]
     if "昼" in txt:
         hiru=["マック","カレー","なし","いも虫","ステーキ","パスタ","チキン","パイモン",]
-        num=random.randint(0,8)
+        num=random.randint(0,7)
         entry.delete(0,tk.END)
         entry.insert(tk.END,hiru[num])
 
