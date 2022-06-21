@@ -1,6 +1,7 @@
 import tkinter as tk
 import tkinter.messagebox as tkm
-import random 
+import random
+hiru=["マック","カレー","なし","いも虫","ステーキ","パスタ","チキン","パイモン",] 
 def button_click(event):
     btn=event.widget
     txt=btn["text"]
@@ -17,10 +18,19 @@ def button_click2(event):
     btn=event.widget
     txt=btn["text"]
     if "昼" in txt:
-        hiru=["マック","カレー","なし","いも虫","ステーキ","パスタ","チキン","パイモン",]
-        num=random.randint(0,7)
+        t=len(hiru)-1
+        num=random.randint(0,t)
         entry.delete(0,tk.END)
         entry.insert(tk.END,hiru[num])
+    else:
+        a=entry.get()
+        hiru.append(a)
+        print(hiru)
+        s=len(hiru)-1
+        s+=1
+        entry.delete(0,tk.END)
+
+        
 
 root=tk.Tk()
 root.title("電卓")
@@ -60,6 +70,9 @@ btn6.grid(row=5,column=2)
 btn6.bind("<1>",button_click)
 btn7=tk.Button(root,text="昼",width=4,height=2,font=("Times New Roman", 20))
 btn7.grid(row=6,column=0)
+btn7.bind("<1>",button_click2)
+btn7=tk.Button(root,text="追加",width=4,height=2,font=("Times New Roman", 20))
+btn7.grid(row=6,column=1)
 btn7.bind("<1>",button_click2)
 
 root.mainloop()
