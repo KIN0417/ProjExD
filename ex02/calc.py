@@ -1,20 +1,30 @@
 import tkinter as tk
 import tkinter.messagebox as tkm
+import random 
 def button_click(event):
     btn=event.widget
     txt=btn["text"]
-    if txt!="=":
-        entry.insert(tk.END,txt)
-    else:
+    if txt=="=":
         q=entry.get()
         q1=q.replace("×","*")
         q2=q1.replace("÷","/")
         a=eval(q2)
         entry.delete(0,tk.END)
         entry.insert(tk.END,a)
+    else:
+        entry.insert(tk.END,txt)
+def button_click2(event):
+    btn=event.widget
+    txt=btn["text"]
+    if "昼" in txt:
+        hiru=["マック","カレー","なし","いも虫","ステーキ","パスタ","チキン","パイモン",]
+        num=random.randint(0,8)
+        entry.delete(0,tk.END)
+        entry.insert(tk.END,hiru[num])
+
 root=tk.Tk()
 root.title("電卓")
-root.geometry("220x490")
+root.geometry("220x550")
 x=0
 y=1
 for i in range(9,-1,-1):
@@ -48,5 +58,8 @@ btn5.bind("<1>",button_click)
 btn6=tk.Button(root,text="÷",width=4,height=2,font=("Times New Roman", 20))
 btn6.grid(row=5,column=2)
 btn6.bind("<1>",button_click)
+btn7=tk.Button(root,text="昼",width=4,height=2,font=("Times New Roman", 20))
+btn7.grid(row=6,column=0)
+btn7.bind("<1>",button_click2)
 
 root.mainloop()
