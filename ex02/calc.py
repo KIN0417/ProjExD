@@ -7,11 +7,14 @@ def button_click(event):
         entry.insert(tk.END,txt)
     else:
         q=entry.get()
-        a=eval(q)
+        q1=q.replace("×","*")
+        q2=q1.replace("÷","/")
+        a=eval(q2)
         entry.delete(0,tk.END)
         entry.insert(tk.END,a)
 root=tk.Tk()
-root.geometry("300x570")
+root.title("電卓")
+root.geometry("220x490")
 x=0
 y=1
 for i in range(9,-1,-1):
@@ -19,7 +22,7 @@ for i in range(9,-1,-1):
                     text=i,
                     width=4,
                     height=2,
-                    font=("Times New Roman", 30)
+                    font=("Times New Roman", 20)
     )
     btn.grid(row=y,column=x,)
     btn.bind("<1>",button_click)
@@ -28,13 +31,22 @@ for i in range(9,-1,-1):
     if x==3:
         x=0
         y+=1
-entry=tk.Entry(justify="right",width=10,font=("Times New Roman",40))
+entry=tk.Entry(justify="right",width=10,font=("Times New Roman",30))
 entry.grid(row=0,column=0,columnspan=3)
-btn2=tk.Button(root,text="+",width=4,height=2,font=("Times New Roman", 30))
+btn2=tk.Button(root,text="+",width=4,height=2,font=("Times New Roman", 20))
 btn2.grid(row=4,column=1)
 btn2.bind("<1>",button_click)
-btn3=tk.Button(root,text="=",width=4,height=2,font=("Times New Roman", 30))
+btn3=tk.Button(root,text="=",width=4,height=2,font=("Times New Roman", 20))
 btn3.grid(row=4,column=2)
 btn3.bind("<1>",button_click)
+btn4=tk.Button(root,text="-",width=4,height=2,font=("Times New Roman", 20))
+btn4.grid(row=5,column=0)
+btn4.bind("<1>",button_click)
+btn5=tk.Button(root,text="×",width=4,height=2,font=("Times New Roman", 20))
+btn5.grid(row=5,column=1)
+btn5.bind("<1>",button_click)
+btn6=tk.Button(root,text="÷",width=4,height=2,font=("Times New Roman", 20))
+btn6.grid(row=5,column=2)
+btn6.bind("<1>",button_click)
 
 root.mainloop()
