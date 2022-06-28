@@ -25,6 +25,8 @@ def main_proc():
     canvas.coords("tori",cx,cy)
     if my==gy and mx==gx:
         tkm.showinfo("OME DETOU","GAME CLEAR")
+        my=0
+        mx=0
     root.after(100,main_proc)
 
 if __name__=="__main__":
@@ -47,7 +49,7 @@ if __name__=="__main__":
         gx=random.randint(0,15)
         gy=random.randint(0,9)
     canvas.create_rectangle(gx*100,gy*100,gx*100+100,gy*100+100,fill="red") #ゴールを赤に塗る
-    
+
     canvas.create_image(cx,cy,image=tori,tag="tori")
     key=""
     root.bind("<KeyPress>",key_down)
