@@ -31,12 +31,15 @@ if __name__=="__main__":
     mx,my=1,1
     root=tk.Tk()
     root.title("迷えるこうかとん")
+
     canvas=tk.Canvas(root,width=1500,height=900,bg="black")
     canvas.pack()
+
     maze_bg=mm.make_maze(15,9)
     mm.show_maze(canvas,maze_bg)
     tori=tk.PhotoImage(file="fig/5.png")
     cx,cy=mx*100+50,my*100+50
+
     canvas.create_rectangle(100,100,200,200,fill="green") #スタートを緑に塗る
     gx=random.randint(0,14) #ゴールのｘ座標をランダムに決める
     gy=random.randint(0,8) #ゴールのy座標をランダムに決める
@@ -44,6 +47,7 @@ if __name__=="__main__":
         gx=random.randint(0,15)
         gy=random.randint(0,9)
     canvas.create_rectangle(gx*100,gy*100,gx*100+100,gy*100+100,fill="red") #ゴールを赤に塗る
+    
     canvas.create_image(cx,cy,image=tori,tag="tori")
     key=""
     root.bind("<KeyPress>",key_down)
