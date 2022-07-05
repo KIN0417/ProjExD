@@ -3,6 +3,7 @@ import sys
 import random
 
 def main():
+    tp=0
     clock=pg.time.Clock()
     pg.display.set_caption("逃げろ！こうかとん")
     screen_sfc=pg.display.set_mode((1600,900))
@@ -42,6 +43,16 @@ def main():
             kkimg_rct.centerx-=1
         if key_states[pg.K_RIGHT]==True:
             kkimg_rct.centerx+=1
+        if key_states[pg.K_t]==True and tp==0:
+            tx,ty=bmimg_rct.centerx,bmimg_rct.centery
+            bmimg_rct.centery=kkimg_rct.centery
+            bmimg_rct.centerx=kkimg_rct.centerx
+            kkimg_rct.centery=ty
+            kkimg_rct.centerx=tx
+            tp+=1
+            
+
+
         if check_bound(kkimg_rct,screen_rct)!=(1,1):
             if key_states[pg.K_UP]==True:
                 kkimg_rct.centery+=1
@@ -52,14 +63,16 @@ def main():
             if key_states[pg.K_RIGHT]==True:
                 kkimg_rct.centerx-=1
         
-        bmimg_rct.move_ip(vx,vy)            
+        bmimg_rct.move_ip(vx,vy)         
 
         yoko,tate= check_bound(bmimg_rct,screen_rct)
         vx*=yoko
         vy*=tate
 
         if kkimg_rct.colliderect(bmimg_rct):
-            return
+            return 
+                
+            
 
         pg.display.update()
         clock.tick(1000)
@@ -72,6 +85,7 @@ def check_bound(rct,scr_rct):
     if rct.top<scr_rct.top or rct.bottom>scr_rct.bottom:
         tate=-1
     return yoko,tate
+
 
 
 
