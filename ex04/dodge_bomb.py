@@ -3,7 +3,7 @@ import sys
 import random
 
 def main():
-    tp=0
+    tp=0 #テレポートに使う変数
     clock=pg.time.Clock()
     pg.display.set_caption("逃げろ！こうかとん")
     screen_sfc=pg.display.set_mode((1600,900))
@@ -43,13 +43,14 @@ def main():
             kkimg_rct.centerx-=1
         if key_states[pg.K_RIGHT]==True:
             kkimg_rct.centerx+=1
+        #テレポート機能追加
         if key_states[pg.K_t]==True and tp==0:
-            tx,ty=bmimg_rct.centerx,bmimg_rct.centery
-            bmimg_rct.centery=kkimg_rct.centery
-            bmimg_rct.centerx=kkimg_rct.centerx
-            kkimg_rct.centery=ty
-            kkimg_rct.centerx=tx
-            tp+=1
+            tx,ty=bmimg_rct.centerx,bmimg_rct.centery #tx,tyに爆弾の座標を代入
+            bmimg_rct.centery=kkimg_rct.centery #爆弾のx座標をこうかとんのx座標にする
+            bmimg_rct.centerx=kkimg_rct.centerx #爆弾のy座標をこうかとんのy座標にする
+            kkimg_rct.centery=ty #こうかとんのy座標を爆弾のy座標にする
+            kkimg_rct.centerx=tx #こうかとんのx座標を爆弾のx座標にする
+            tp+=1 
             
 
 
