@@ -51,6 +51,8 @@ def main():
             kkimg_rct.centery=ty #こうかとんのy座標を爆弾のy座標にする
             kkimg_rct.centerx=tx #こうかとんのx座標を爆弾のx座標にする
             tp+=1 
+
+            
             
 
 
