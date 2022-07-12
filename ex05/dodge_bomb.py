@@ -87,6 +87,17 @@ class Bomb:
             self.blit(scr)
 
 
+def dekoi_move(dekoi,bomb,scr):
+    if dekoi.rct.colliderect(bomb.rct): #身代わりと爆弾がぶつかったかどうか
+        dekoi.vx*=-1
+        dekoi.vy*=-1
+        bomb.vx*=-1
+        bomb.vy*=-1
+        dekoi.blit(scr)
+        bomb.blit(scr)
+
+
+
 def main():
     clock = pg.time.Clock()
     scr=Screen("逃げろ！こうかとん",(1600,900),"fig/pg_bg.jpg")
@@ -112,41 +123,11 @@ def main():
 
         key_states = pg.key.get_pressed() # 辞書
         if key_states[pg.K_d]:
-            if dekoi.rct.colliderect(bkd.rct): #身代わりと爆弾がぶつかったかどうか
-                dekoi.vx*=-1
-                dekoi.vy*=-1
-                bkd.vx*=-1
-                bkd.vy*=-1
-                dekoi.blit(scr)
-                bkd.blit(scr)
-            if dekoi.rct.colliderect(bkd2.rct): #身代わりと爆弾がぶつかったかどうか
-                dekoi.vx*=-1
-                dekoi.vy*=-1
-                bkd2.vx*=-1
-                bkd2.vy*=-1
-                dekoi.blit(scr)
-                bkd2.blit(scr)
-            if dekoi.rct.colliderect(bkd3.rct): #身代わりと爆弾がぶつかったかどうか
-                dekoi.vx*=-1
-                dekoi.vy*=-1
-                bkd3.vx*=-1
-                bkd3.vy*=-1
-                dekoi.blit(scr)
-                bkd3.blit(scr)
-            if dekoi.rct.colliderect(bkd4.rct): #身代わりと爆弾がぶつかったかどうか
-                dekoi.vx*=-1
-                dekoi.vy*=-1
-                bkd4.vx*=-1
-                bkd4.vy*=-1
-                dekoi.blit(scr)
-                bkd4.blit(scr)
-            if dekoi.rct.colliderect(bkd5.rct): #身代わりと爆弾がぶつかったかどうか
-                dekoi.vx*=-1 
-                dekoi.vy*=-1
-                bkd5.vx*=-1
-                bkd5.vy*=-1
-                dekoi.blit(scr)
-                bkd5.blit(scr)
+            dekoi_move(dekoi,bkd,scr)
+            dekoi_move(dekoi,bkd2,scr)
+            dekoi_move(dekoi,bkd3,scr)
+            dekoi_move(dekoi,bkd4,scr)
+            dekoi_move(dekoi,bkd5,scr)
             dekoi.update(scr)
 
 
